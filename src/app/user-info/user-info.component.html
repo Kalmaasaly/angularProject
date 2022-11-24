@@ -1,0 +1,19 @@
+<div class="rows">
+
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+          <td>License No</td>
+            <td>user id</td>
+            <td>user ip</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of service.list">
+            <td>{{user.id}}</td>
+            <td>{{user.ip}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

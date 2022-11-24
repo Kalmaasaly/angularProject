@@ -1,0 +1,64 @@
+<div class="rows">
+  <table class="table caption-top">
+    <tbody>
+      <tr>
+        <th scope="row">Start Date</th>
+        <td>{{service.licenseInfo.startDate | date: "short"}}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">End Date</th>
+        <td>{{service.licenseInfo.expireDate | date: "short"}}</td>
+        <td><button class="btn btn-primary" [routerLink]="['/licenseInfo/renewlicense']"><i class="bi bi-arrow-clockwise"></i>Re-new license</button>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Number of Users</th>
+        <td>{{service.licenseInfo.noUsers}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="form-group">
+
+    <div class="rows">
+      <table class="table">
+          <thead class="thead-light">
+              <tr>
+                <th scope="row">Users' Licenses</th>
+                <th scope="row">userId</th>
+                <th scope="row">Status</th>
+                <th scope="row">Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let license of service.licenseInfo.usersLicenses">
+                  <td>{{license.licenseId}}</td>
+                  <td>{{license.userId}}</td>
+                  <td>
+                   <i class="bi" [ngClass]="{
+                        'rediconcolor bi-bookmark-fill':license.status,
+                        'bi-bookmark':!license.status
+                      }"></i>
+
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-primary"
+                    [routerLink]="['/licenseInfo/create',license.licenseId]"
+                    [disabled]="license.status">
+                      <i class="bi bi-person-add"></i>
+                    </button>
+                    <span></span>
+                    <button class="btn btn-danger" type="button"><i class="bi bi-person-dash" (click)="confirmBox(license)"></i>  </button>
+                 </td>
+              </tr>
+
+          </tbody>
+      </table>
+      </div>
+  </div>
+</div>
+
+

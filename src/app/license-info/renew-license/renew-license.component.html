@@ -1,0 +1,25 @@
+
+<div class="card">
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+  <div class="form-group">
+      <label>Start Date</label>
+      <p-calendar [showTime]="true"></p-calendar>
+  </div>
+  <div class="field">
+    <label>Expire Date:</label>
+    <p-calendar [showTime]="true"></p-calendar>
+  </div>
+  <div class="field">
+    <label>Payment Method:</label>
+    <input type="text"/>
+  </div>
+  <div class="input-group" >
+      <button type="button" class="btn btn-primary" [disabled]="form.invalid" >
+        <i class="bi bi-person-add"></i>Create</button>
+        <button class="btn btn-danger" style="margin-right: 20px;" [routerLink]="['/licenseInfo']" >
+          <i class="bi bi-x-lg"></i>Cancel</button>
+
+  </div>
+
+</form>
+</div>
