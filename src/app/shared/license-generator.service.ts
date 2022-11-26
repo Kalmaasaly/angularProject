@@ -17,6 +17,6 @@ export class LicenseGeneratorService {
   
 
   postBatchToken(){
-    return this.http.post(this.baseURL,this.formData)
+    return this.http.post(this.baseURL,this.formData);
   }
 }

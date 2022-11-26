@@ -1,25 +1,42 @@
-
-<div class="card">
-<form novalidate #form="ngForm" (submit)="onSubmit(form)">
-  <div class="form-group">
+<div >
+  <form novalidate #form="ngForm" (submit)="onSubmit(form)">
+    <div class="field">
       <label>Start Date</label>
-      <p-calendar [showTime]="true"></p-calendar>
-  </div>
-  <div class="field">
-    <label>Expire Date:</label>
-    <p-calendar [showTime]="true"></p-calendar>
-  </div>
-  <div class="field">
-    <label>Payment Method:</label>
-    <input type="text"/>
-  </div>
-  <div class="input-group" >
-      <button type="button" class="btn btn-primary" [disabled]="form.invalid" >
-        <i class="bi bi-person-add"></i>Create</button>
-        <button class="btn btn-danger" style="margin-right: 20px;" [routerLink]="['/licenseInfo']" >
-          <i class="bi bi-x-lg"></i>Cancel</button>
+      <div >
+        <p-calendar name="startDate" [(ngModel)]="startDateValue" [showTime]="true"    ></p-calendar>
+      </div>
+    </div>
+    <div class="field">
+      <label>Expire Date:</label>
+      <div >
+        <p-calendar name="expirDate" [(ngModel)]="expirDateValue" [showTime]="true"    ></p-calendar>
+      </div>
+    </div>
+    <div class="field">
+      <label>Payment Method:</label>
+      <div class="formgroup-inline">
+        <div *ngFor="let method of methods" class="field-radiobutton">
+          <p-radioButton
+            [inputId]="method.key"
+            name="category"
+            [value]="method"
+            [(ngModel)]="selectedMethod"></p-radioButton>
+          <label [for]="method.key">{{ method.name }}</label>
+        </div>
+      </div>
+    </div>
+    <p> {{form.value| json }}</p>
+    <button  type="submit" class="btn btn-primary mr-2">  
+            <i class="bi bi-person-add"></i>Create
+      </button>
+     
+     <button 
+     class="btn btn-danger mr-2"  style="margin-right: 20px"
+        [routerLink]="['/licenseInfo']">
+        <i class="bi bi-x-lg"></i>Cancel
+      </button>
+   
+  
 
-  </div>
-
-</form>
+  </form>
 </div>

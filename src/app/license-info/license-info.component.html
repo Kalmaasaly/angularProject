@@ -45,13 +45,13 @@
 
                   </td>
                   <td>
-                    <button type="button" class="btn btn-primary"
+                    <button type="button" class="btn btn-primary mr-2"
                     [routerLink]="['/licenseInfo/create',license.licenseId]"
                     [disabled]="license.status">
                       <i class="bi bi-person-add"></i>
                     </button>
-                    <span></span>
-                    <button class="btn btn-danger" type="button"><i class="bi bi-person-dash" (click)="confirmBox(license)"></i>  </button>
+                    
+                    <button class="btn btn-danger mr-2" type="button"><i class="bi bi-person-dash" (click)="confirmBox(license)"></i>  </button>
                  </td>
               </tr>
 

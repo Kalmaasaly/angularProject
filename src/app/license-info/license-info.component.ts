@@ -25,13 +25,11 @@ export class LicenseInfoComponent implements OnInit {
     const confirmBox = new ConfirmBoxInitializer();
 
     confirmBox.setTitle('Are you sure?');
-    confirmBox.setMessage('Confirm to revoke license!'+license);
+    confirmBox.setMessage('Confirm to revoke license!'+license.userId);
     confirmBox.setButtonLabels('YES', 'NO');
-    // Choose layout color type
-
     confirmBox.setConfig({
 
-        layoutType: DialogLayoutDisplay.DANGER // SUCCESS | INFO | NONE | DANGER | WARNING
+        layoutType: DialogLayoutDisplay.DANGER 
 
     });
 

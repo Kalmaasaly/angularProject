@@ -1,22 +1,48 @@
 
-
-<form novalidate #form="ngForm" (submit)="onSubmit(form)">
-  <div class="form-group">
+<p-toast></p-toast>
+  <form [formGroup]="licenseAssigneeform" (ngSubmit)="onSubmit(licenseAssigneeform.value)" #form="ngForm">
+    <p-panel header="License assignee to user">
+      <div class="ui-fluid forms-grid" style="margin: 1em 0">
+    <div class="field">
       <label>License:</label>
-      <input  id="licenseId" class="form-control form-control-lg" [readOnly]="true"
-      name="licenseId" value="{{licenseId}}">
-  </div>
-  <div class="form-group">
-    <label>User:</label>
-    <input class="form-control form-control-lg"
-    name="user" >
-</div>
-  <div class="input-group" >
-      <button type="button" class="btn btn-primary" [disabled]="form.invalid" >
-        <i class="bi bi-person-add"></i>Create</button>
-        <button class="btn btn-danger" style="margin-right: 20px;" [routerLink]="['/licenseInfo']" >
-          <i class="bi bi-x-lg"></i>Cancel</button>
+      <input
+        type="text"
+        formControlName="licenseId" 
+        pInputText
+        [(ngModel)]="service.formData.licenseId"
+        readOnly
+        required
+        class="form-control form-control-lg"
+      />
+      <p-message severity="error" text="licenseId is required" 
+      *ngIf="!licenseAssigneeform.controls['licenseId'].valid&&licenseAssigneeform.controls['licenseId'].dirty"></p-message>
+    </div>
+    <div class="field">
+      <label>User:</label>
 
-  </div>
-</form>
+      <input
+        type="text"
+        formControlName="userId" 
+        pInputText
+        [(ngModel)]="service.formData.userId"
+        required
+        class="form-control form-control-lg"
+      />
+      <p-message severity="error" text="userId is required" *ngIf="!licenseAssigneeform.controls['userId'].valid&&licenseAssigneeform.controls['userId'].dirty"></p-message>
 
+    </div>
+    <p>{{ form.value | json }}</p>
+    <button
+      type="submit"
+      class="btn btn-primary mr-2"
+      [disabled]="!licenseAssigneeform.valid"
+    >
+      <i class="bi bi-person-add"></i>Create
+    </button>
+
+    <button class="btn btn-danger mr-2" [routerLink]="['/licenseInfo']">
+      <i class="bi bi-x-lg"></i>Cancel
+    </button>
+    </div>
+    </p-panel>
+  </form>
