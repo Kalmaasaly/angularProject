@@ -9,7 +9,7 @@ import { LicenseGenerator } from './license-generator.model';
 export class LicenseGeneratorService {
 
   constructor(private http: HttpClient) { }
-  readonly baseURL="http://localhost:5144/api/license";
+  readonly baseURL="http://localhost:57208/api/License";
 
   formData:LicenseGenerator=new LicenseGenerator();
   licenseInfo:LicenseInfo=new LicenseInfo();

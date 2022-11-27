@@ -3,9 +3,9 @@
     <div class="form-group">
         <label>Batch Token</label>
         <textarea class="form-control form-control-lg" cols="4" rows="10" style="resize: none;"
-        name="batchToken" #batchToken="ngModel"
-         [(ngModel)]="service.formData.batchToken"
-         required [class.is-invalid]="batchToken.invalid && batchToken.touched"></textarea>
+        name="TokenBatch" #TokenBatch="ngModel"
+         [(ngModel)]="service.formData.TokenBatch"
+         required [class.is-invalid]="TokenBatch.invalid && TokenBatch.touched"></textarea>
     </div>
     <div class="form-group" style="float: right;">
         <button class="btn btn-info btn-lg btn-block" [disabled]="form.invalid" >Run</button>
